@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 const useLocationData = (locationData) => {
     const [coordinates, setCoordinates] = useState([])
     const [postCode, setPostCode] = useState('')
-    const [LocationName, setLocationName] = useState('')
+    const [locationName, setLocationName] = useState('')
 
-    return{coordinates, postCode}
+    return{coordinates, postCode, locationName, setCoordinates, setPostCode, setLocationName}
 }
 
 export default useLocationData
