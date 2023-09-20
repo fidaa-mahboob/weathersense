@@ -1,7 +1,7 @@
 import React from 'react'
 import LocationWeatherSearch from '../components/LocationWeatherSearch'
 
-const LocationSearch = () => {
+const LocationSearch = ({}) => {
   return (
     <LocationWeatherSearch/>
   )
