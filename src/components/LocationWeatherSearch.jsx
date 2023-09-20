@@ -1,8 +1,12 @@
 import React from 'react'
 
-const LocationWeatherSearch = () => {
+const LocationWeatherSearch = ({setLocationName, setPostCode}) => {
   return (
+    <>
     <div>LocationWeatherSearch</div>
+    <p>yasgdhasg</p>
+    </>
+    
   )
 }
 

@@ -7,23 +7,23 @@ import useLocationData from './hook/useLocationData';
 import { useEffect } from 'react';
 
 function App() {
-  const [locationName, coordinates, postCode, setCoordinates, setLocationName, setPostCode] = useLocationData(null)
+  const {locationName, coordinates, postCode, setCoordinates, setLocationName, setPostCode} = useLocationData(null)
 
-  useEffect(() => {
-    if(locationName !== ''){
-      fetch("http://api.openweathermap.org/geo/1.0/direct?q="+ {locationName} + "&limit=5&appid={API key}")
-      .then((data) => data.json)
-      .then((json) => setCoordinates([json.lat, json.lon]))
-      .catch((e) => console.log(e))
-      setLocationName('')
-    } else if (postCode !== ''){
-      fetch("http://api.openweathermap.org/geo/1.0/zip?zip=" + {postCode} + "&appid={API key}")
-      .then((data) => data.json)
-      .then((json) => setCoordinates([json.lat, json.lon]))
-      .catch((e) => console.log(e))
-      setPostCode('')
-    }
-    }, [locationName, postCode, setCoordinates, setLocationName, setPostCode])
+  // useEffect(() => {
+  //   if(locationName !== ''){
+  //     fetch("http://api.openweathermap.org/geo/1.0/direct?q="+ {locationName} + "&limit=5&appid={API key}")
+  //     .then((data) => data.json)
+  //     .then((json) => setCoordinates([json.lat, json.lon]))
+  //     .catch((e) => console.log(e))
+  //     setLocationName('')
+  //   } else if (postCode !== ''){
+  //     fetch("http://api.openweathermap.org/geo/1.0/zip?zip=" + {postCode} + "&appid={API key}")
+  //     .then((data) => data.json)
+  //     .then((json) => setCoordinates([json.lat, json.lon]))
+  //     .catch((e) => console.log(e))
+  //     setPostCode('')
+  //   }
+  //   }, [locationName, postCode, setCoordinates, setLocationName, setPostCode])
 
   return (
     <BrowserRouter>

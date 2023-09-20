@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const useLocationData = (locationData) => {
-    const [coordinates, setCoordinates] = useState([])
+    const [coordinates, setCoordinates] = useState([10.0, 2.0])
     const [postCode, setPostCode] = useState('')
     const [locationName, setLocationName] = useState('')
 

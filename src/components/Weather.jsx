@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Weather = () => {
+const Weather = ({coordinates}) => {
+  let lon = coordinates[0]
+  let lat = coordinates[1]
+
   return (
-    <div>Weather data</div>
+    <div>Weather data: {lon} : {lat}</div>
   )
 }
 
