@@ -23,12 +23,12 @@ function App() {
   //     .catch((e) => console.log(e))
   //     setPostCode('')
   //   }
-  //   }, [locationName, postCode, setCoordinates, setLocationName, setPostCode])
+  //   }, [setLocationName, setPostCode])
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LocationSearch setLocationName={setLocationName} setPostCode={setPostCode}/>} />
+        <Route path="/" element={<LocationSearch setLocationName={setLocationName} setPostCode={setPostCode} locationName={locationName}/>} />
         <Route path="/Location/Weather/Data" element={<LocationWeather coordinates={coordinates}/>}/>
       </Routes>
     </BrowserRouter>

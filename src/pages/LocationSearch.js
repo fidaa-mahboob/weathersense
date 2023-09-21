@@ -1,9 +1,9 @@
 import React from 'react'
 import LocationWeatherSearch from '../components/LocationWeatherSearch'
 
-const LocationSearch = ({setLocationName, setPostCode}) => {
+const LocationSearch = ({setLocationName, setPostCode, locationName}) => {
   return (
-    <LocationWeatherSearch setLocationName={setLocationName} setPostCode={setPostCode}/>
+    <LocationWeatherSearch setLocationName={setLocationName} setPostCode={setPostCode} locationName={locationName}/>
   )
 }
 
