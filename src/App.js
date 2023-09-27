@@ -66,9 +66,11 @@ function App() {
       }
       console.log(responseCurrentWeatherData.data)
       console.log(responseForcastWeatherData.data)
-      // setWeatherData(data)
-    }catch(err){
-      if (err) setError('404')
+      
+    } catch (err) {
+      if (err) {
+        setError('404')
+      }
     }
   }
 
