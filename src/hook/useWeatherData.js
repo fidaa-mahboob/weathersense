@@ -6,7 +6,36 @@ const useWeatherData = (data) => {
     const [weatherDaily, setWeatherDaily] = useState([])
     const [weatherCurrent, setWeatherCurrent] = useState([])
 
+    const getTemperature = () => {
+    
+    }
 
+    const getAirPressure = () => {
+
+    }
+
+    const getHumidity = () => {
+
+    }
+
+    const getWindSpeed = () => {
+
+    }
+
+    const getCloudinessPercent = () => {
+
+    }
+
+    const getUltraVioletIndex = () => {
+
+    }
+
+    const getDateAndTime = () => {
+
+    }
+ 
+
+    return {icon, weatherHour, weatherDaily, weatherCurrent}
 }
 
 export default useWeatherData

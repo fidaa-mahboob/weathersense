@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
-const useLocationData = (locationData) => {
-    const [coordinates, setCoordinates] = useState([])
-    const [postCode, setPostCode] = useState('')
-    const [LocationName, setLocationName] = useState('')
+//Deprecate and remove"
 
-    return{coordinates, postCode}
+const useLocationData = (locationData) => {
+    const [coordinates, setCoordinates] = useState([10.0, 2.0])
+    const [postCode, setPostCode] = useState('')
+    const [locationName, setLocationName] = useState('')
+
+   
+    return{coordinates, postCode, locationName, setCoordinates, setPostCode, setLocationName}
 }
 
 export default useLocationData

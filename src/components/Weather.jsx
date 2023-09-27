@@ -1,8 +1,21 @@
 import React from 'react'
+import CurrentWeather from './CurrentWeather'
+import DailyWeather from './DailyWeather'
+import LocationWeatherSummary from './LocationWeatherSummary'
+import useWeatherData from '../hook/useWeatherData'
 
-const Weather = () => {
+const Weather = ({weather}) => {
+  const{} = useWeatherData(weather)
+  
+
+
+
   return (
-    <div>Weather data</div>
+    <>
+    <LocationWeatherSummary/>
+    <CurrentWeather/>
+    <DailyWeather/>
+    </>
   )
 }
 
