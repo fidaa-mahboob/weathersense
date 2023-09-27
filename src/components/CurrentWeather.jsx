@@ -1,6 +1,9 @@
 import React from 'react'
+import useWeatherData from '../hook/useWeatherData'
 
-const CurrentWeather = () => {
+const CurrentWeather = ({currentWeatherData}) => {
+  const{} = useWeatherData(currentWeatherData)
+
   return (
   <>
     <div>CurrentWeather</div>

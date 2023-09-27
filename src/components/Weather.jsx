@@ -4,8 +4,9 @@ import DailyWeather from './DailyWeather'
 import LocationWeatherSummary from './LocationWeatherSummary'
 import useWeatherData from '../hook/useWeatherData'
 
-const Weather = ({weather}) => {
-  const{} = useWeatherData(weather)
+const Weather = ({currentWeatherData, forecastWeatherData}) => {
+  const{} = useWeatherData(currentWeatherData)
+  const{} = useWeatherData(forecastWeatherData)
   
 
 
@@ -13,8 +14,8 @@ const Weather = ({weather}) => {
   return (
     <>
     <LocationWeatherSummary/>
-    <CurrentWeather/>
-    <DailyWeather/>
+    <CurrentWeather currentWeatherData={currentWeatherData}/>
+    <DailyWeather forecastWeatherData={forecastWeatherData}/>
     </>
   )
 }
