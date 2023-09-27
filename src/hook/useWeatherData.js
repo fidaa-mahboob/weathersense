@@ -30,8 +30,12 @@ const useWeatherData = (data) => {
 
     }
 
+    const getDateAndTime = () => {
 
-    return {icon, weatherHour, weatherDaily, weatherCurrent, setIcon, setWeatherCurrent, setWeatherDaily, setWeatherHour}
+    }
+ 
+
+    return {icon, weatherHour, weatherDaily, weatherCurrent}
 }
 
 export default useWeatherData

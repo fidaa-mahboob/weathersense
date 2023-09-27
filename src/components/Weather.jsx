@@ -4,17 +4,14 @@ import DailyWeather from './DailyWeather'
 import LocationWeatherSummary from './LocationWeatherSummary'
 import useWeatherData from '../hook/useWeatherData'
 
-const Weather = ({coordinates}) => {
-  const{} = useWeatherData()
+const Weather = ({weather}) => {
+  const{} = useWeatherData(weather)
   
-  let lon = coordinates[0]
-  let lat = coordinates[1]
 
 
 
   return (
     <>
-    <div>Weather data: {lon} : {lat}</div>
     <LocationWeatherSummary/>
     <CurrentWeather/>
     <DailyWeather/>
