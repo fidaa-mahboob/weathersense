@@ -5,10 +5,10 @@ import LocationWeatherSummary from './LocationWeatherSummary'
 import useWeatherData from '../hook/useWeatherData'
 
 const Weather = ({currentWeatherData, forecastWeatherData}) => {
-  const{} = useWeatherData(currentWeatherData)
+  const{getTemperature} = useWeatherData(currentWeatherData)
   const{} = useWeatherData(forecastWeatherData)
   
-
+  console.log("printed json? ==> \n" + currentWeatherData)
 
 
   return (

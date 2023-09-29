@@ -14,10 +14,10 @@ const LocationWeatherSearch = ({fetchCoordinates, setInput, input}) => {
   return(
     <>
      <div>LocationWeatherSearch</div>
-     {/* <div>location: {CityName}</div> */}
      <section className='search-wrapper'>
        <div>WeatherSense Logo</div>
        <form onSubmit={fetchCoordinates}>
+        <img className='logo'src='assets/searching-magnifying-glass.png' alt='logo'/>
         <div>
           <input placeholder="Enter location or postcode" type="text" onChange={(e) => setInput(e.target.value)}/>
         </div>

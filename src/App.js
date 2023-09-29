@@ -5,9 +5,11 @@ import LocationWeatherSearch from './components/LocationWeatherSearch';
 import Weather from './components/Weather';
 import SearchError from './components/SearchError';
 
+// "coord":{}, "weather":[], "base":"", "main":{}, "visibility":0, "wind":{}, "clouds":{}, "dt":0, "timezone":0, "id":0, "name":"", "cod":0
+
 function App() {
-  const [currentWeatherData, setCurrentWeatherData] = useState(null)
-  const [forecastWeatherData, setForecastWeatherData] = useState(null) 
+  const [currentWeatherData, setCurrentWeatherData] = useState()
+  const [forecastWeatherData, setForecastWeatherData] = useState() 
   const [latitude, setLatitude] = useState(0)
   const [longitude, setLongitude] = useState(0)
   const [input, setInput] = useState('')
@@ -50,22 +52,29 @@ function App() {
       let responseForcastWeatherData
       
       if(latitude && longitude){
-        responseCurrentWeatherData = await Axios.get(
+        responseCurrentWeatherData = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
         )
 
-        setCurrentWeatherData(responseCurrentWeatherData.data)
+        let jsonData1 = await responseCurrentWeatherData.json()
+
+        setCurrentWeatherData(jsonData1)
 
         
+
+        console.log(typeof jsonData1)
+
+      
         responseForcastWeatherData = await Axios.get(
           `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
         )
-        
-        setForecastWeatherData(responseForcastWeatherData.data)
-        
+
+        let obj2 = await responseForcastWeatherData.data
+
+        setForecastWeatherData(obj2)
       }
-      console.log(responseCurrentWeatherData.data)
-      console.log(responseForcastWeatherData.data)
+      
+
       
     } catch (err) {
       if (err) {
@@ -85,7 +94,6 @@ function App() {
         currentWeatherData && forecastWeatherData? 
         <Weather currentWeatherDataweather={currentWeatherData} forecastWeatherData={forecastWeatherData} /> : <LocationWeatherSearch fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
       }
-      <SearchError error={error}/>
       {latitude} : {longitude}
     </>
   )
