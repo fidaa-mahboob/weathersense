@@ -2,36 +2,50 @@ import React, { useState } from 'react'
 
 const useWeatherData = (data) => {
     const [icon, setIcon] = useState('')
+    const [currentTemperature, setCurrentTemperature] = useState()
+    const [currentAirPressure, setCurrentAirPressure] = useState()
+    const [currentHumidity, setCurrentHumidity] = useState()
+    const [currentWindSpeed, setCurrentWindSpeed] = useState()
+
     const [weatherHour, setWeatherHour] = useState([])
     const [weatherDaily, setWeatherDaily] = useState([])
     const [weatherCurrent, setWeatherCurrent] = useState([])
 
-    const getTemperature = () => {
-    
+    const getCurrentWeatherIcon = () => {
+        
+        
     }
 
-    const getAirPressure = () => {
-
+    const getCurrentTemperature = () => {
+        setCurrentTemperature(data.main.temp)
     }
 
-    const getHumidity = () => {
-
-    }
-
-    const getWindSpeed = () => {
+    const getCurrentAirPressure = () => {
 
     }
 
-    const getCloudinessPercent = () => {
+    const getCurrentHumidity = () => {
 
     }
 
-    const getUltraVioletIndex = () => {
+    const getCurrentWindSpeed = () => {
 
     }
 
-    const getDateAndTime = () => {
+    const getCurrentCloudinessPercent = () => {
 
+    }
+
+    const getCurrentUltraVioletIndex = () => {
+
+    }
+
+    const getCurrentDateAndTime = () => {
+
+    }
+
+    const getAllCurrentWeatherData = () => {
+        
     }
  
 
