@@ -1,17 +1,13 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Axios from 'axios';
-import LocationWeatherSearch from './components/LocationWeatherSearch';
+import Search from './components/Search';
 import Weather from './components/Weather';
 import SearchError from './components/SearchError';
 
-// "coord":{}, "weather":[], "base":"", "main":{}, "visibility":0, "wind":{}, "clouds":{}, "dt":0, "timezone":0, "id":0, "name":"", "cod":0
-
 function App() {
-  const [currentWeatherData, setCurrentWeatherData] = useState()
-  const [forecastWeatherData, setForecastWeatherData] = useState() 
-  const [latitude, setLatitude] = useState(0)
-  const [longitude, setLongitude] = useState(0)
+  const [currentWeatherData, setCurrentWeatherData] = useState(null)
+  const [forecastWeatherData, setForecastWeatherData] = useState(null) 
   const [input, setInput] = useState('')
   const [error, setError] = useState(null)
   const API_KEY = process.env.REACT_APP_API_KEY
@@ -37,64 +33,34 @@ function App() {
         lon = response.data[0].lon
       }
 
-      
-      setLatitude(lat)
-      setLongitude(lon)
+      const responseCurrentWeatherData = fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
+      )
 
+      const responseForcastWeatherData = fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
+      )
+
+
+      Promise.all([responseCurrentWeatherData, responseForcastWeatherData])
+        .then(async (response) => {
+          const currentWeather = await response[0].json()
+          const forecastWeather = await response[1].json()
+
+          setCurrentWeatherData({...currentWeather})
+          setForecastWeatherData({...forecastWeather})
+        })
     } catch (err){
-      if (err) setError('Invalid Postcode or Location Name')
+      console.log(err)
     } 
   }
-
-  const fetchWeatherData = async () => {
-    try{
-      let responseCurrentWeatherData
-      let responseForcastWeatherData
-      
-      if(latitude && longitude){
-        responseCurrentWeatherData = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
-        )
-
-        let jsonData1 = await responseCurrentWeatherData.json()
-
-        setCurrentWeatherData(jsonData1)
-
-        
-
-        console.log(typeof jsonData1)
-
-      
-        responseForcastWeatherData = await Axios.get(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
-        )
-
-        let obj2 = await responseForcastWeatherData.data
-
-        setForecastWeatherData(obj2)
-      }
-      
-
-      
-    } catch (err) {
-      if (err) {
-        setError('404')
-      }
-    }
-  }
-
-  useEffect(() => {
-    console.log('refresh .........')
-    fetchWeatherData()
-  }, [longitude, latitude])
 
   return (
     <>
       {
-        currentWeatherData && forecastWeatherData? 
-        <Weather currentWeatherDataweather={currentWeatherData} forecastWeatherData={forecastWeatherData} /> : <LocationWeatherSearch fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
+        currentWeatherData && forecastWeatherData && <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} />? 
+        <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} /> : <Search fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
       }
-      {latitude} : {longitude}
     </>
   )
 }

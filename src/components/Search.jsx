@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 
 const LocationWeatherSearch = ({fetchCoordinates, setInput, input}) => {
   
@@ -17,7 +16,7 @@ const LocationWeatherSearch = ({fetchCoordinates, setInput, input}) => {
      <section className='search-wrapper'>
        <div>WeatherSense Logo</div>
        <form onSubmit={fetchCoordinates}>
-        <img className='logo'src='assets/searching-magnifying-glass.png' alt='logo'/>
+        <img className='logo' src='assets/searching-magnifying-glass.png' alt='logo'/>
         <div>
           <input placeholder="Enter location or postcode" type="text" onChange={(e) => setInput(e.target.value)}/>
         </div>
