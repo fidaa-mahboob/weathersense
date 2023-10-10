@@ -9,7 +9,7 @@ const CurrentWeather = ({currentWeatherData}) => {
 
   return (
   <>
-    <img src={`https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}@2x.png.png`} alt="weather icon"/>
+    <img src={`https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}@2x.png`} alt="weather icon"/>
     <p>{currentWeatherData.weather[0].main}</p>
     <div>CurrentWeather</div>
     <div className="mdc-data-table">
