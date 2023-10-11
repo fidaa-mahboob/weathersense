@@ -14,9 +14,9 @@ const LocationWeatherSearch = ({ fetchCoordinates, setInput, input }) => {
   }
 
   return (
-    <div className='container px-4 mx-auto pt-24 mt-8 max-w-xl flex flex-col space-y-2'>
+    <section>
       <form className="container px-4 mx-auto pt-24 mt-8 max-w-xl flex flex-col space-y-6" onSubmit={fetchCoordinates}>
-        <img src={WeatherSenseLogo}/>
+        <img src={WeatherSenseLogo} alt="weather sense logo"/>
         <div className="rounded py-2 px-4 flex border-2 border-gray-300">
           <div className="place-self-center text-gray-500 cursor-pointer">
             <UilSearch/>
@@ -33,7 +33,7 @@ const LocationWeatherSearch = ({ fetchCoordinates, setInput, input }) => {
           <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-md" type="button">Current Location</button>
         </div>
       </form>
-    </div>
+    </section>
   )
 }
 
