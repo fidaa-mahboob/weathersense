@@ -56,12 +56,12 @@ function App() {
   }
 
   return (
-    <>
+    <div >
       {
         currentWeatherData && forecastWeatherData && <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} />? 
         <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} /> : <Search fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
       }
-    </>
+    </div>
   )
 }
 

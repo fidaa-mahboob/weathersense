@@ -1,44 +1,71 @@
 import React from 'react'
-import useWeatherData from '../hook/useWeatherData'
+import TimeAndLocation from './TimeAndLocation'
+import {
+  UilArrowUp,
+  UilArrowDown,
+  UilTemperature,
+  UilTear,
+  UilWind,
+  UilSun,
+  UilSunset
+} from "@iconscout/react-unicons"
 
-const CurrentWeather = ({currentWeatherData}) => {
+const CurrentWeather = ({ currentWeatherData }) => {
 
   console.log("CurrentweatherData ===> " + currentWeatherData.main.temp)
 
-
-
   return (
-  <>
-    <img src={`https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}@2x.png`} alt="weather icon"/>
-    <p>{currentWeatherData.weather[0].main}</p>
-    <div>CurrentWeather</div>
-    <div className="mdc-data-table">
-    <div className="mdc-data-table__table-container">
-      <table className="mdc-data-table__table" aria-label="Dessert calories">
-        <thead>
-          <tr className="mdc-data-table__header-row">
-            <th className="mdc-data-table__header-cell" role="columnheader" scope="col">Current Temperature</th>
-            <th className="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Current Wind Speed</th>
-            <th className="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Current Humidity</th>
-            <th className="mdc-data-table__header-cell" role="columnheader" scope="col">Pressure</th>
-            <th>Cloudiness</th>
-            <th>UVi</th>
-          </tr>
-        </thead>
-        <tbody className="mdc-data-table__content">
-          <tr className="mdc-data-table__row">
-          <td className="mdc-data-table__cell">{currentWeatherData.main.temp} C</td>
-          <td className="mdc-data-table__cell mdc-data-table__cell--numeric">{currentWeatherData.wind.speed} m/s</td>
-          <td className="mdc-data-table__cell mdc-data-table__cell--numeric">{currentWeatherData.main.humidity} %</td>
-          <td className="mdc-data-table__cell">{currentWeatherData.main.pressure} Pa</td>
-          <td>{currentWeatherData.clouds.all} %</td>
-          <td>1.2</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</>
+    <>
+      <TimeAndLocation data={currentWeatherData} />
+      <div className="flex items-center justify-center py-6 text-2xl text-cyan-300">
+        <p>{currentWeatherData.weather[0].main}</p>
+      </div>
+
+      <div className="flex flex-row items-center justify-between text-white py-3">
+          <img src={`https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}@2x.png`} alt="weather icon" className='w-20' />
+        <p className='text-5xl'>{Math.floor(currentWeatherData.main.temp)} °C</p>
+        <div className="flex flex-col space-y-2">
+          <div className='flex font-light text-sm items-center justify-center'>
+            <UilTemperature size={18} className="mr-1" />
+            Feels Like:
+            <span className="font-medium ml-1"> {Math.floor(currentWeatherData.main.feels_like)} °C</span>
+          </div>
+          <div className='flex font-light text-sm items-center justify-center'>
+            <UilTear size={18} className="mr-1" />
+            Humidity:
+            <span className="font-medium ml-1"> {Math.floor(currentWeatherData.main.humidity)} %</span>
+          </div>
+          <div className='flex font-light text-sm items-center justify-center'>
+            <UilWind size={18} className="mr-1" />
+            Wind Speed:
+            <span className="font-medium ml-1"> {Math.floor(currentWeatherData.wind.speed)} m/s</span>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-row items-center justify-center space-x-2 text-white text-sm py-3">
+        {/* <UilSun/>
+        <p className="font-light">
+          Rise:<span className="font-medium ml-1">06:55 AM</span>
+        </p>
+        <p className='font-light'>|</p>
+        <UilSunset/>
+        <p className="font-light">
+          Sunset:<span className="font-medium ml-1">06:55 AM</span>
+        </p>
+        <p className='font-light'>|</p> */}
+        <UilArrowUp/>
+        <p className="font-light">
+          High:<span className="font-medium ml-1">{Math.floor(currentWeatherData.main.temp_max)} °C</span>
+        </p>
+        <p className='font-light'>|</p>
+        <UilArrowDown/>
+        <p className="font-light">
+          Low:<span className="font-medium ml-1">{Math.floor(currentWeatherData.main.temp_min)} °C</span>
+        </p>
+        <p className='font-light'>|</p>
+        
+      </div>
+    </>
   )
 }
 
