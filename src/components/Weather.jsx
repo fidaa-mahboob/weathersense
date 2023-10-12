@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrentWeather from './CurrentWeather'
+import CurrentWeather from './CurrentWeather.jsx'
 import Forecast from './Forecast.jsx'
 
 const Weather = ({currentWeatherData, forecastWeatherData}) => {
