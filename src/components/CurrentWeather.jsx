@@ -6,14 +6,12 @@ import {
   UilTemperature,
   UilTear,
   UilWind,
-  UilSun,
-  UilSunset
+ 
 } from "@iconscout/react-unicons"
 
 const CurrentWeather = ({ currentWeatherData }) => {
 
-  console.log("CurrentweatherData ===> " + currentWeatherData.main.temp)
-
+ 
   return (
     <>
       <TimeAndLocation data={currentWeatherData} />

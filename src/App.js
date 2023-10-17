@@ -7,20 +7,21 @@ import SearchError from './components/SearchError';
 
 function App() {
   const [currentWeatherData, setCurrentWeatherData] = useState(null)
-  const [forecastWeatherData, setForecastWeatherData] = useState(null) 
+  const [forecastWeatherData, setForecastWeatherData] = useState(null)
+  const [dataLoaded, setDataLoaded] = useState(false)
   const [input, setInput] = useState('')
   const [error, setError] = useState(null)
   const API_KEY = process.env.REACT_APP_API_KEY
-  
+
   const fetchCoordinates = async (e) => {
-    try{
-      e.preventDefault()
+    e.preventDefault()
+    try {
       let response
       let lat
       let lon
-      
+
       // line 34 tests input for valid GB Post Code format
-      if(/^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?[0-9][A-Za-z]{2}$/.test(input)){
+      if (/^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?[0-9][A-Za-z]{2}$/.test(input) || /^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?\s[0-9][A-Za-z]{2}$/.test(input)) {
         response = await Axios.get(
           `http://api.openweathermap.org/geo/1.0/zip?zip=${input},GB&appid=9febc35812425cf718ad7e6c9ba49d6f`
         )
@@ -34,28 +35,26 @@ function App() {
         lon = response.data[0].lon
       }
 
-      const responseCurrentWeatherData = await Axios.get(
+      await Axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
-      )
+      ).then((res) => { setCurrentWeatherData({ ...res.data }) })
 
-      const responseForcastWeatherData = await Axios.get(
+      await Axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
-      )
-
-      setCurrentWeatherData({...responseCurrentWeatherData.data})
-      setForecastWeatherData({...responseForcastWeatherData.data})
-
-    } catch (err){
+      ).then((res) => {
+        setForecastWeatherData({ ...res.data })
+      }).then(() => {setDataLoaded(true)})
+    } catch (err) {
       console.log(err)
-    } 
+    }
   }
 
   return (
     <div >
       {
-        currentWeatherData && forecastWeatherData? 
-        <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData}/> : 
-        <Search fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
+        dataLoaded ?
+          <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} /> :
+          <Search fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
       }
     </div>
   )

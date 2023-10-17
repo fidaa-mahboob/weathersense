@@ -2,7 +2,7 @@ import React from 'react'
 import { UilSearch, UilLocationPinAlt } from '@iconscout/react-unicons'
 import WeatherSenseLogo from '../assets/images/WeatherSense.png'
 
-const LocationWeatherSearch = ({ fetchCoordinates, setInput, input }) => {
+const LocationWeatherSearch = ({ fetchCoordinates, setInput, input}) => {
 
   let searchButton
 

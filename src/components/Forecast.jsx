@@ -2,8 +2,6 @@ import React from 'react'
 
 const Forecast = ({ forecastWeatherData }) => {
 
-  console.log("test 1 ==> " + forecastWeatherData.list)
-
   return (
     <div>
       <div className="flex items-center justify-start-my-6">
@@ -14,7 +12,7 @@ const Forecast = ({ forecastWeatherData }) => {
       <div className="flex flex-row items-center justify-between text-white">
 
         {forecastWeatherData.list.splice(0, 6).map((item, idx) => (
-          <div className="flex flex-col items-center justify-center">
+          <div key={item.dt_txt} className="flex flex-col items-center justify-center">
             <p className="font-light text-sm">
               {item.dt_txt.slice(10,16)}
             </p>
