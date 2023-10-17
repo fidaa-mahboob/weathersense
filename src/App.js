@@ -13,7 +13,7 @@ function App() {
   const [error, setError] = useState(null)
   const API_KEY = process.env.REACT_APP_API_KEY
 
-  const fetchCoordinates = async (e) => {
+  const fetchWeatherData = async (e) => {
     e.preventDefault()
     try {
       let response
@@ -54,7 +54,7 @@ function App() {
       {
         dataLoaded ?
           <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} /> :
-          <Search fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
+          <Search fetchWeatherData={fetchWeatherData} setInput={setInput} input={input}/>
       }
     </div>
   )
