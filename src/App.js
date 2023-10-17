@@ -14,10 +14,11 @@ function App() {
   
   const fetchCoordinates = async (e) => {
     try{
+      e.preventDefault()
       let response
       let lat
       let lon
-      e.preventDefault()
+      
       // line 34 tests input for valid GB Post Code format
       if(/^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?[0-9][A-Za-z]{2}$/.test(input)){
         response = await Axios.get(
@@ -33,23 +34,17 @@ function App() {
         lon = response.data[0].lon
       }
 
-      const responseCurrentWeatherData = fetch(
+      const responseCurrentWeatherData = await Axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
       )
 
-      const responseForcastWeatherData = fetch(
+      const responseForcastWeatherData = await Axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
       )
 
+      setCurrentWeatherData({...responseCurrentWeatherData.data})
+      setForecastWeatherData({...responseForcastWeatherData.data})
 
-      Promise.all([responseCurrentWeatherData, responseForcastWeatherData])
-        .then(async (response) => {
-          const currentWeather = await response[0].json()
-          const forecastWeather = await response[1].json()
-
-          setCurrentWeatherData({...currentWeather})
-          setForecastWeatherData({...forecastWeather})
-        })
     } catch (err){
       console.log(err)
     } 
@@ -58,8 +53,9 @@ function App() {
   return (
     <div >
       {
-        currentWeatherData && forecastWeatherData && <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} />? 
-        <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} /> : <Search fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
+        currentWeatherData && forecastWeatherData? 
+        <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData}/> : 
+        <Search fetchCoordinates={fetchCoordinates} setInput={setInput} input={input}/>
       }
     </div>
   )
