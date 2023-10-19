@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Search from './components/Search';
 import Weather from './components/Weather';
 import SearchError from './components/SearchError';
+import { async } from 'q';
 
 function App() {
   const [currentWeatherData, setCurrentWeatherData] = useState(null)
@@ -12,14 +13,24 @@ function App() {
   const [input, setInput] = useState('')
   const [error, setError] = useState(null)
   const API_KEY = process.env.REACT_APP_API_KEY
+  let lat
+  let lon
+
+  
+
+  const getCurrentLocationWeather = () => {
+    if(navigator.geolocation){  
+      navigator.geolocation.getCurrentPosition((pos)=>{console.log(pos.coords.latitude + ' ' + pos.coords.longitude)})
+    } else (
+      console.log('else')
+    )
+  }
 
   const fetchWeatherData = async (e) => {
     e.preventDefault()
     try {
       let response
-      let lat
-      let lon
-
+    
       // line 34 tests input for valid GB Post Code format
       if (/^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?[0-9][A-Za-z]{2}$/.test(input) || /^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?\s[0-9][A-Za-z]{2}$/.test(input)) {
         response = await Axios.get(
@@ -54,7 +65,7 @@ function App() {
       {
         dataLoaded ?
           <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} /> :
-          <Search fetchWeatherData={fetchWeatherData} setInput={setInput} input={input}/>
+          <Search fetchWeatherData={fetchWeatherData} setInput={setInput} input={input} currentLocationWeather={getCurrentLocationWeather}/>
       }
     </div>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import { UilSearch, UilLocationPinAlt } from '@iconscout/react-unicons'
 import WeatherSenseLogo from '../assets/images/WeatherSense.png'
 
-const LocationWeatherSearch = ({ fetchWeatherData, setInput, input}) => {
+const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocationWeather}) => {
 
   let searchButton
 
@@ -30,7 +30,7 @@ const LocationWeatherSearch = ({ fetchWeatherData, setInput, input}) => {
           </div>
           <div className="mx-auto flex space-x-2">
             {searchButton}
-            <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-md" type="button">Current Location</button>
+            <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-md" type="button" onClick={currentLocationWeather}>Current Location</button>
           </div>
         </form>
       </section>
