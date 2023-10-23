@@ -16,14 +16,23 @@ function App() {
   let lat
   let lon
 
-  
-
   const getCurrentLocationWeather = () => {
     if(navigator.geolocation){  
-      navigator.geolocation.getCurrentPosition((pos)=>{console.log(pos.coords.latitude + ' ' + pos.coords.longitude)})
-    } else (
-      console.log('else')
-    )
+      navigator.geolocation.getCurrentPosition(async (pos) => {
+        lat = pos.coords.latitude
+        lon = pos.coords.longitude
+
+        await Axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
+        ).then((res) => { setCurrentWeatherData({ ...res.data }) })
+  
+        await Axios.get(
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=9febc35812425cf718ad7e6c9ba49d6f&units=metric`
+        ).then((res) => {
+          setForecastWeatherData({ ...res.data })
+        }).then(() => {setDataLoaded(true)})
+      })
+    } 
   }
 
   const fetchWeatherData = async (e) => {
