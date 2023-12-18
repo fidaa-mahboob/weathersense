@@ -2,7 +2,7 @@ import React from 'react'
 import { UilSearch, UilLocationPinAlt } from '@iconscout/react-unicons'
 import WeatherSenseLogo from '../assets/images/WeatherSense.png'
 
-const LocationWeatherSearch = ({ fetchCoordinates, setInput, input }) => {
+const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocationWeather}) => {
 
   let searchButton
 
@@ -15,7 +15,7 @@ const LocationWeatherSearch = ({ fetchCoordinates, setInput, input }) => {
   return (
     <>
       <section>
-        <form className="container px-4 mx-auto pt-24 mt-8 max-w-xl flex flex-col space-y-6" onSubmit={fetchCoordinates}>
+        <form className="container px-4 mx-auto pt-24 mt-8 max-w-xl flex flex-col space-y-6" onSubmit={fetchWeatherData}>
           <img className="flex justify-center" src={WeatherSenseLogo} alt="weather sense logo" width="500" height="500"/>
           <div className="rounded py-2 px-4 flex border-2 border-gray-300">
             <div className="place-self-center text-gray-500 cursor-pointer">
@@ -30,7 +30,7 @@ const LocationWeatherSearch = ({ fetchCoordinates, setInput, input }) => {
           </div>
           <div className="mx-auto flex space-x-2">
             {searchButton}
-            <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-md" type="button">Current Location</button>
+            <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-md" type="button" onClick={currentLocationWeather}>Current Location</button>
           </div>
         </form>
       </section>
