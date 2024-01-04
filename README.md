@@ -12,6 +12,10 @@
   <li>React JS</li>
   <li>Javascript</li>
   <li>Tailwind CSS</li>
+  <li>Express JS</li>
+  <li>GraphQL</li>
+  <li>Docker</li>
+  <li>Github Actions CI/CD</li>
 </ul>
 
 ## Getting Started with WeatherSense
