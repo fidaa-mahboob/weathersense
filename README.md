@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b59b8f09-2ac8-4900-8935-0339dfa8fa46/deploy-status)](https://app.netlify.com/sites/fidaamahboob/deploys)
-
 # WeatherSense 
 <div><p>This ia an app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day.</p>
 </div>
