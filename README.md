@@ -1,5 +1,5 @@
 # WeatherSense 
-<div><p>This ia an app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day.</p>
+<div><p>This ia an app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day. The backend for this app is in this repo <a href="https://github.com/fidaa-mahboob/weathersense-proxy-server">click here</a></p>
 </div>
 <img width="1726" alt="Screenshot 2023-12-18 at 14 08 09" src="https://github.com/fidaa-mahboob/weathersense/assets/151159499/1a79dbcc-011e-417b-9574-d35b514c80c8">
 </br>
