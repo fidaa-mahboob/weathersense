@@ -17,6 +17,11 @@
   <li>Github Actions CI/CD</li>
 </ul>
 
+## Road Map 
+
+- Integrate the backend proxy server with the front end react app.
+- Add a return button for scenario where user wants to search weather info for another location. 
+
 ## Getting Started with WeatherSense
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
