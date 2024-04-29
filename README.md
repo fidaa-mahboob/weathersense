@@ -19,8 +19,8 @@
 
 ## Road Map 
 
-- Integrate the backend proxy server with the front end react app.
-- Add a return button for scenario where user wants to search weather info for another location. 
+- Integrate the backend proxy server with the front end react app. (done)
+- Add a return button for scenario where user wants to search weather info for another location. (In progress)
 
 ## Getting Started with WeatherSense
 
