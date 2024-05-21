@@ -8,13 +8,11 @@
 ## Tech Stack
 
 <ul>
-  <li>React JS</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>React</li>
   <li>Javascript</li>
   <li>Tailwind CSS</li>
-  <li>Express JS</li>
-  <li>GraphQL</li>
-  <li>Docker</li>
-  <li>Github Actions CI/CD</li>
 </ul>
 
 ## Road Map 
