@@ -7,14 +7,14 @@ const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocat
   let searchButton
 
   if (input === '') {
-    searchButton = <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-md" type="submit" disabled>Search</button>
+    searchButton = <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-xl" type="submit" disabled>Search</button>
   } else {
-    searchButton = <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-md" type="submit">Search</button>
+    searchButton = <button className="px-4 py-2 rounded bg-gray-300 transition-all duration-500 hover:shadow-xl" type="submit">Search</button>
   }
 
   return (
     <>
-      <section className=' pb-4 pt-4 '>
+      <section>
         <form className="container px-4 mx-auto pt-24 max-w-xl flex flex-col items-center justify-center space-y-6 " onSubmit={fetchWeatherData}>
           <img src={WeatherSenseLogo} alt="weather sense logo" width="300" height="300"/>
           <div className="container rounded-xl py-2 px-4 flex border-2 border-gray-300 hover:outline-grey-600">
@@ -28,7 +28,7 @@ const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocat
               <a onClick={currentLocationWeather}><UilLocationPinAlt /></a>
             </div>
           </div>
-          <div className="mx-auto flex space-x-2">
+          <div>
             {searchButton}
           </div>
         </form>
