@@ -1,4 +1,3 @@
-import './App.css';
 import { useState } from 'react';
 import Axios from 'axios';
 import Search from './components/Search';
