@@ -20,7 +20,7 @@ const CurrentWeather = ({ currentWeatherData, setDataLoaded }) => {
   return (
     <>
     <div className="flex flex-col items-center">
-      <a onClick={() => {reset()}}><img src={home} width={50}/></a>
+      <a onClick={() => {reset()}} className='cursor-pointer'><img src={home} width={50}/></a>
       <TimeAndLocation data={currentWeatherData} />
     </div>
       <div className="flex items-center justify-center py-6 text-2xl text-cyan-300">
