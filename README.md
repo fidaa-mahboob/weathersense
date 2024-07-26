@@ -14,6 +14,7 @@
   <li>Javascript</li>
   <li>Tailwind CSS</li>
   <li>AWS</li>
+  <li>Terraform</li>
 </ul>
 
 ## AWS
