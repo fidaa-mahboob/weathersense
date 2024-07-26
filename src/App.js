@@ -3,7 +3,6 @@ import Axios from 'axios';
 import Search from './components/Search';
 import Weather from './components/Weather';
 import SearchError from './components/SearchError';
-import { async } from 'q';
 
 function App() {
   const [currentWeatherData, setCurrentWeatherData] = useState(null)
