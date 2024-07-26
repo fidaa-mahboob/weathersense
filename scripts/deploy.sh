@@ -11,4 +11,4 @@ aws configure set preview.cloudfront true && aws cloudfront create-invalidation 
 
 npm run build
 
-aws s3 sync ../build $bucketUrl
+aws s3 sync ./build $bucketUrl
