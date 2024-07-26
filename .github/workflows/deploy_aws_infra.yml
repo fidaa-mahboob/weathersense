@@ -107,6 +107,9 @@ jobs:
           run: | 
             terraform apply -auto-approve -input=false
             chmod 555 ../scripts/deploy.sh
+            cd ..
+            npm i
+            cd ./terraform
             npm run deploy
 
       
