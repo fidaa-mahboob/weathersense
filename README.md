@@ -13,18 +13,14 @@
   <li>React</li>
   <li>Javascript</li>
   <li>Tailwind CSS</li>
+  <li>AWS</li>
 </ul>
 
-## Road Map 
+## AWS
 
-- Integrate the backend proxy server with the front end react app. (done)
-- Add a return button for scenario where user wants to search weather info for another location. (In progress)
+To view weathersense application in production [click here.](https://d3vn25g3axuxaf.cloudfront.net)
 
-## Getting Started with WeatherSense
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### Available Scripts
+## Development
 
 In the project directory, you can run:
 
@@ -32,7 +28,4 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
