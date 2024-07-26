@@ -102,17 +102,11 @@ jobs:
           if: steps.plan.outcome == 'failure'
           run: exit 1
 
-      -   name: Terraform Apply 
+      -   name: Terraform Apply And Deploy To AWS
           if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-          run: terraform apply -auto-approve -input=false
-
-
-      -   name: Modify User File Permissions 
-          if: github.even_name == 'push'
-          run: chmod 555 ../scripts/deploy.sh 
-
-      -   name: Deploy WeatherSense Application to AWS S3 Bucket
-          if: github.even_name == 'push'
-          run: npm run deploy
+          run: | 
+            terraform apply -auto-approve -input=false
+            chmod 555 ../scripts/deploy.sh
+            npm run deploy
 
       
