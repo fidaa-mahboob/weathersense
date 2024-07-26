@@ -42,13 +42,13 @@ function App() {
       // line 34 tests input for valid GB Post Code format
       if (/^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?[0-9][A-Za-z]{2}$/.test(input) || /^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?\s[0-9][A-Za-z]{2}$/.test(input)) {
         response = await Axios.get(
-          `http://api.openweathermap.org/geo/1.0/zip?zip=${input},GB&appid=9febc35812425cf718ad7e6c9ba49d6f`
+          `https://api.openweathermap.org/geo/1.0/zip?zip=${input},GB&appid=9febc35812425cf718ad7e6c9ba49d6f`
         )
         lat = response.data.lat
         lon = response.data.lon
       } else {
         response = await Axios.get(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=9febc35812425cf718ad7e6c9ba49d6f`
+          `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=9febc35812425cf718ad7e6c9ba49d6f`
         )
         lat = response.data[0].lat
         lon = response.data[0].lon
@@ -79,7 +79,7 @@ function App() {
       </main>
       <footer className="w-full flex items-center justify-center py-3">
         <div className="md:flex md:items-end md:justify-center">
-          <span className=" text-gray-500 sm:text-center dark:text-gray-400">© 2023 WeatherSense. All Rights Reserved. | Powered by AWS
+          <span className=" text-black-500 sm:text-center font-bold dark:text-gray-400">© 2023 WeatherSense. All Rights Reserved. | Powered by AWS
           </span>
         </div>
       </footer>
