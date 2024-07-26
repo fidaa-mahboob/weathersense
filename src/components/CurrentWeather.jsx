@@ -8,13 +8,21 @@ import {
   UilWind,
  
 } from "@iconscout/react-unicons"
+import home from '../assets/home button.png'
 
-const CurrentWeather = ({ currentWeatherData }) => {
 
- 
+const CurrentWeather = ({ currentWeatherData, setDataLoaded }) => {
+
+  const reset = () => {
+    setDataLoaded(false);
+  }
+
   return (
     <>
+    <div className="flex flex-col items-center">
+      <a onClick={() => {reset()}}><img src={home} width={50}/></a>
       <TimeAndLocation data={currentWeatherData} />
+    </div>
       <div className="flex items-center justify-center py-6 text-2xl text-cyan-300">
         <p>{currentWeatherData.weather[0].main}</p>
       </div>

@@ -73,7 +73,7 @@ function App() {
       <main className='container mx-auto max-w-7xl pt-1 px-1 flex-grow'>
         {
           dataLoaded ?
-            <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} /> :
+            <Weather currentWeatherData={currentWeatherData} forecastWeatherData={forecastWeatherData} setDataLoaded={setDataLoaded}/> :
             <Search fetchWeatherData={fetchWeatherData} setInput={setInput} input={input} currentLocationWeather={getCurrentLocationWeather} />
         }
       </main>
