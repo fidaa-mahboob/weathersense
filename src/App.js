@@ -79,7 +79,7 @@ function App() {
       </main>
       <footer className="w-full flex items-center justify-center py-3">
         <div className="md:flex md:items-end md:justify-center">
-          <span className=" text-gray-500 sm:text-center dark:text-gray-400">© 2023 WeatherSense. All Rights Reserved. | Powered by AWS
+          <span className=" text-black-500 sm:text-center font-bold dark:text-gray-400">© 2023 WeatherSense. All Rights Reserved. | Powered by AWS
           </span>
         </div>
       </footer>
