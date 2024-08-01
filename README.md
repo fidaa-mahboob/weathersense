@@ -1,5 +1,5 @@
 # WeatherSense 
-<div><p>This is a React app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day. The backend for this app is in this repo <a href="https://github.com/fidaa-mahboob/weathersense-proxy-server">click here</a></p>
+<div><p>This is a React app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day. The experimental backend for this app is in this repo <a href="https://github.com/fidaa-mahboob/weathersense-proxy-server">click here</a></p>
 
 ## Tech Stack
 
