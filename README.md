@@ -21,7 +21,13 @@ This repo has an [associated blog post.](https://medium.com/@fidaamahboob/my-sof
 
 To view weathersense application in production [click here.](https://d3vn25g3axuxaf.cloudfront.net)
 
-## Development
+## Road Map
+
+<ul>
+  <li>Build UI tests for different React components. Then run tests as part of CI/CD pipeline.</li>
+</ul>
+
+## Run Project In Local Development Environment
 
 In the project directory, you can run:
 
