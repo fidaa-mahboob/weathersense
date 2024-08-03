@@ -97,6 +97,12 @@ jobs:
                 body: output
               })
 
+      -   name: Run UI Component tests
+          if: github.event_name == 'pull_request'
+          run: |
+            npm i
+            npm run test
+          continue-on-error: false
 
       -   name: Terraform Plan Status
           if: steps.plan.outcome == 'failure'
