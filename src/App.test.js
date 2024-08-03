@@ -52,15 +52,16 @@ const currentWeatherdata = {
 const forecastWeatherdata = {...forecastData};
 
 
-test('Testing current weather component has rendered data', () => {
+test('Current weather component renders and displays location name called Dewsbury', () => {
   render(<Weather currentWeatherData={currentWeatherdata} forecastWeatherData={forecastWeatherdata}/>);
   const locationText = screen.getByText(/Dewsbury, GB/);
   expect(locationText).toBeInTheDocument;
 });
 
-test("Enter location dewsbury in to input box on search page", () => {
-  render(<Search fetchWeatherData={fetchWeatherData} setInput={setInput} input={input} currentLocationWeather={getCurrentLocationWeather}/>);
-  //todo complete ui test
+test("The forecast weather successfully renders and displays a time 03:00", () => {
+  render(<Weather currentWeatherData={currentWeatherdata} forecastWeatherData={forecastWeatherdata}/>);
+  const forecastTimeText = screen.getByText(/03:00/);
+  expect(forecastTimeText).toBeInTheDocument;
 });
 
 
