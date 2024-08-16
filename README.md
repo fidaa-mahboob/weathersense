@@ -1,9 +1,5 @@
 # WeatherSense 
-<div><p>This is a React app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day. The backend for this app is in this repo <a href="https://github.com/fidaa-mahboob/weathersense-proxy-server">click here</a></p>
-</div>
-<img width="1726" alt="Screenshot 2023-12-18 at 14 08 09" src="https://github.com/fidaa-mahboob/weathersense/assets/151159499/1a79dbcc-011e-417b-9574-d35b514c80c8">
-</br>
-<img width="815" alt="Screenshot 2023-12-18 at 14 08 38" src="https://github.com/fidaa-mahboob/weathersense/assets/151159499/df59f70b-06c8-436b-91af-630bc04ebf6a">
+<div><p>This is a React app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day. The experimental backend for this app is in this repo <a href="https://github.com/fidaa-mahboob/weathersense-proxy-server">click here</a></p>
 
 ## Tech Stack
 
@@ -13,18 +9,25 @@
   <li>React</li>
   <li>Javascript</li>
   <li>Tailwind CSS</li>
+  <li>AWS</li>
+  <li>Terraform</li>
 </ul>
 
-## Road Map 
+## Blog Post
 
-- Integrate the backend proxy server with the front end react app. (done)
-- Add a return button for scenario where user wants to search weather info for another location. (In progress)
+This repo has an [associated blog post.](https://medium.com/@fidaamahboob/my-software-engineering-journey-deploying-a-react-app-to-aws-4b0c957db857)
 
-## Getting Started with WeatherSense
+## AWS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To view weathersense application in production [click here.](https://d3vn25g3axuxaf.cloudfront.net)
 
-### Available Scripts
+## Road Map
+
+<ul>
+  <li>Build UI tests for different React components. Then run tests as part of CI/CD pipeline.</li>
+</ul>
+
+## Run Project In Local Development Environment
 
 In the project directory, you can run:
 
@@ -32,7 +35,4 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
