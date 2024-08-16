@@ -1,6 +1,6 @@
 import {React} from 'react'
 
-const TimeAndLocation = ({ data }) => {
+export const TimeAndLocation = ({ data }) => {
 
     let unixTimeStamp = data.dt
     const date = new Date(unixTimeStamp * 1000)
@@ -16,5 +16,3 @@ const TimeAndLocation = ({ data }) => {
         </div>
     )
 }
-
-export default TimeAndLocation
