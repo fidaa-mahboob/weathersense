@@ -1,5 +1,5 @@
 import React from 'react'
-import TimeAndLocation from './TimeAndLocation'
+import { TimeAndLocation } from 'src/components/TimeAndLocation.jsx'
 import {
   UilArrowUp,
   UilArrowDown,
@@ -7,11 +7,34 @@ import {
   UilTear,
   UilWind,
  
-} from "@iconscout/react-unicons"
-import home from '../assets/home button.png'
+} from '@iconscout/react-unicons'
+import home from 'src/assets/home button.png'
 
+interface Weather {
+  main: String
+  icon: String
+}
 
-const CurrentWeather = ({ currentWeatherData, setDataLoaded }) => {
+interface CurrentWeatherData {
+  weather: Weather[]
+  main: {
+    temp: number
+    feels_like: number
+    humidity: number
+    temp_max: number
+    temp_min: number
+  }
+  wind: {
+    speed: number
+  }
+}
+
+interface Props {
+  setDataLoaded: (dataloaded: boolean) => void
+  currentWeatherData: CurrentWeatherData
+}
+
+const CurrentWeather = ({ currentWeatherData, setDataLoaded } : Props) => {
 
   const reset = () => {
     setDataLoaded(false);
