@@ -23,7 +23,6 @@ interface Props {
 }
 
 const Forecast = ({ forecastWeatherData }: Props) => {
-
   return (
     <div>
       <div className="flex items-center justify-start-my-6">
