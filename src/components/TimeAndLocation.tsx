@@ -11,8 +11,8 @@ interface Props {
 }
 export const TimeAndLocation = ({ data } : Props) => {
     let unixTimeStamp : number = data.dt
-    const date = new Date(unixTimeStamp * 1000)
-    
+    const date : Date = new Date(unixTimeStamp * 1000)
+
     return (
         <div>
             <div className="flex items-center justify-center my-6">
