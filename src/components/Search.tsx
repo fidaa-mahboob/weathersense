@@ -1,8 +1,16 @@
 import React from 'react'
-import { UilSearch, UilLocationPinAlt } from '@iconscout/react-unicons'
+import UilSearch from '@iconscout/react-unicons'
+import UilLocationPinAlt from '@iconscout/react-unicons'
 import WeatherSenseLogo from '../assets/images/WeatherSense.png'
 
-const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocationWeather}) => {
+interface Props {
+  fetchWeatherData: () => void
+  setInput: (e: String) => void
+  input: String
+  currentLocationWeather: () => void 
+}
+
+const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocationWeather} : Props) => {
 
   let searchButton
 
