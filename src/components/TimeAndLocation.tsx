@@ -1,8 +1,16 @@
-import {React} from 'react'
+import React from 'react'
 
-export const TimeAndLocation = ({ data }) => {
-
-    let unixTimeStamp = data.dt
+interface Props {
+    data: {
+        dt : number
+        name : String 
+        sys : {
+            country : String
+        }
+    }
+}
+export const TimeAndLocation = ({ data } : Props) => {
+    let unixTimeStamp : number = data.dt
     const date = new Date(unixTimeStamp * 1000)
     
     return (
