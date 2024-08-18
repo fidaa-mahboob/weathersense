@@ -39,7 +39,6 @@ const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocat
         </div>
       </form>
     </section>
-
   )
 }
 

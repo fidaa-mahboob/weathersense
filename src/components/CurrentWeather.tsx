@@ -42,7 +42,6 @@ const CurrentWeather = ({ currentWeatherData, setDataLoaded }: Props) => {
       <div className="flex items-center justify-center py-6 text-2xl text-cyan-300">
         <p>{currentWeatherData.weather[0].main}</p>
       </div>
-
       <div className="flex flex-row items-center justify-between text-white py-3">
         <img src={`https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}@2x.png`} alt="weather icon" className='w-20' />
         <p className='text-5xl'>{Math.floor(currentWeatherData.main.temp)} °C</p>
