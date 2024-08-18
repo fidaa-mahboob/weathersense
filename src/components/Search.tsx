@@ -1,6 +1,5 @@
 import React from 'react'
-import UilSearch from '@iconscout/react-unicons'
-import UilLocationPinAlt from '@iconscout/react-unicons'
+import * as iconscout from '@iconscout/react-unicons'
 import WeatherSenseLogo from '../assets/images/WeatherSense.png'
 
 interface Props {
@@ -27,13 +26,13 @@ const LocationWeatherSearch = ({ fetchWeatherData, setInput, input, currentLocat
           <img src={WeatherSenseLogo} alt="weather sense logo" width="300" height="300"/>
           <div className="container rounded-xl py-2 px-4 flex border-2 border-gray-300 hover:outline-grey-600">
             <div className="place-self-center text-gray-500 cursor-pointer">
-              <UilSearch />
+              <iconscout.UilSearch />
             </div>
             <div className='flex px-4 w-full'>
               <input className="w-full border-none outline-none text-base" placeholder='Enter postcode or City/Town' type="text" onChange={(e) => setInput(e.target.value)} />
             </div>
             <div className="place-self-center text-gray-500 cursor-pointer">
-              <a onClick={currentLocationWeather}><UilLocationPinAlt /></a>
+              <a onClick={currentLocationWeather}><iconscout.UilLocationPinAlt /></a>
             </div>
           </div>
           <div>
