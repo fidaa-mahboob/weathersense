@@ -6,7 +6,7 @@ interface Props {
 
 const SearchError = ({ error } : Props) => {
     if(error === null){
-        return(<></>)
+        return(<p></p>)
     } else {
         return(
         <p>{ error }</p>
