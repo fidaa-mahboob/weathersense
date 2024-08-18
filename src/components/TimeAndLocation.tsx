@@ -2,16 +2,16 @@ import React from 'react'
 
 interface Props {
     data: {
-        dt : number
-        name : String 
-        sys : {
-            country : String
+        dt: number
+        name: String 
+        sys: {
+            country: String
         }
     }
 }
 export const TimeAndLocation = ({ data } : Props) => {
     let unixTimeStamp : number = data.dt
-    const date : Date = new Date(unixTimeStamp * 1000)
+    const date = new Date(unixTimeStamp * 1000)
 
     return (
         <div>
