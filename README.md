@@ -12,6 +12,8 @@
   <li>Tailwind CSS</li>
   <li>AWS</li>
   <li>Terraform</li>
+  <li>Bash</li>
+  <li>Github Actions CI/CD</li>
 </ul>
 
 ## Blog Post
