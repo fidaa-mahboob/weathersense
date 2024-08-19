@@ -8,6 +8,7 @@
   <li>CSS</li>
   <li>React</li>
   <li>Javascript</li>
+  <li>Typescript</li>
   <li>Tailwind CSS</li>
   <li>AWS</li>
   <li>Terraform</li>
@@ -24,7 +25,7 @@ To view weathersense application in production [click here.](https://d3vn25g3axu
 ## Road Map
 
 <ul>
-  <li>Build UI tests for different React components. Then run tests as part of CI/CD pipeline.</li>
+  <li>Port remaining files to Typescript.</li>
 </ul>
 
 ## Run Project In Local Development Environment
