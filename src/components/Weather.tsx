@@ -3,7 +3,7 @@ import CurrentWeather from './CurrentWeather'
 import Forecast from './Forecast'
 
 interface Props {
-  setDataLoaded: () => void
+  setDataLoaded: (dataLoaded: boolean) => void
   currentWeatherData: any
   forecastWeatherData: any
 }

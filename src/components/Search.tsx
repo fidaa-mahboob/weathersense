@@ -3,9 +3,9 @@ import * as iconscout from '@iconscout/react-unicons'
 import WeatherSenseLogo from '../assets/images/WeatherSense.png'
 
 interface Props {
-  fetchWeatherData: () => void
-  setInput: (e: String) => void
-  input: String
+  fetchWeatherData: (fetchData: { preventDefault: () => void; }) => void
+  setInput: (e: string) => void
+  input: string
   currentLocationWeather: () => void
 }
 
