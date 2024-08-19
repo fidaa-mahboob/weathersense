@@ -102,13 +102,20 @@ jobs:
           if: steps.plan.outcome == 'failure'
           run: exit 1
 
+
+      -   name: Install Node Packages
+          run: npm i    
+
+      -   name: Run Component Tests
+          run: |
+             CI=true npm run test
+
       -   name: Terraform Apply And Deploy To AWS
           if: github.ref == 'refs/heads/main' && github.event_name == 'push'
           run: | 
             terraform apply -auto-approve -input=false
             chmod 555 ../scripts/deploy.sh
             cd ..
-            npm i
             cd ./terraform
             npm run deploy
 

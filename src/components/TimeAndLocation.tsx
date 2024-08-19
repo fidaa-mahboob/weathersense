@@ -1,10 +1,18 @@
-import {React} from 'react'
+import React from 'react'
 
-const TimeAndLocation = ({ data }) => {
-
-    let unixTimeStamp = data.dt
+interface Props {
+    data: {
+        dt: number
+        name: String 
+        sys: {
+            country: String
+        }
+    }
+}
+export const TimeAndLocation = ({ data } : Props) => {
+    let unixTimeStamp : number = data.dt
     const date = new Date(unixTimeStamp * 1000)
-    
+
     return (
         <div>
             <div className="flex items-center justify-center my-6">
@@ -16,5 +24,3 @@ const TimeAndLocation = ({ data }) => {
         </div>
     )
 }
-
-export default TimeAndLocation
