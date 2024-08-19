@@ -108,7 +108,7 @@ jobs:
 
       -   name: Run Component Tests
           run: |
-             npm run run-tests
+             CI=true npm run test
 
       -   name: Terraform Apply And Deploy To AWS
           if: github.ref == 'refs/heads/main' && github.event_name == 'push'
