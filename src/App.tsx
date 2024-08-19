@@ -4,12 +4,24 @@ import Search from './components/Search';
 import Weather from './components/Weather';
 import SearchError from './components/SearchError';
 
-function App() {
-  const [currentWeatherData, setCurrentWeatherData] = useState(null)
-  const [forecastWeatherData, setForecastWeatherData] = useState(null)
-  const [dataLoaded, setDataLoaded] = useState(false)
-  const [input, setInput] = useState('')
-  const [error, setError] = useState(null)
+interface AppProps {
+  lat: number
+  lon: number
+  currentWeatherData: any
+  setCurrentWeatherData: (data: any) => void
+  forecastWeatherData: any
+  setForecastWeatherData: (data: any) => void
+  dataLoaded: boolean
+  setDataLoaded: (dataLoaded?: boolean) => void
+  input: String
+}
+
+function App(props: AppProps){
+  const [currentWeatherData, setCurrentWeatherData] = useState<any>(null)
+  const [forecastWeatherData, setForecastWeatherData] = useState<any>(null)
+  const [dataLoaded, setDataLoaded] = useState<boolean>(false)
+  const [input, setInput] = useState<string>('')
+  const [error, setError] = useState<string>('')
   const API_KEY = process.env.REACT_APP_API_KEY
   let lat
   let lon
@@ -33,7 +45,7 @@ function App() {
     }
   }
 
-  const fetchWeatherData = async (e) => {
+  const fetchWeatherData = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
     try {
       let response
