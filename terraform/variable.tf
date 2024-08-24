@@ -15,6 +15,11 @@ variable "bucket_name" {
   type    = string
 }
 
+variable "domain_name" {
+  type    = string
+  default = "weathersense.co.uk"
+}
+
 variable "created_by" {
   default = "Fidaa Mahboob"
   type    = string
