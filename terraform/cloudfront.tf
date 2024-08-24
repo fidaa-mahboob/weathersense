@@ -16,6 +16,7 @@ resource "aws_cloudfront_distribution" "website_cdn" {
   }
 
   default_root_object = "index.html"
+  aliases             = ["www.${var.domain_name}"]
 
   default_cache_behavior {
     allowed_methods        = ["GET", "HEAD", "DELETE", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -49,7 +50,8 @@ resource "aws_cloudfront_distribution" "website_cdn" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = aws_acm_certificate.default.arn
+    ssl_support_method  = "sni-only"
   }
 
   tags = {
@@ -59,23 +61,66 @@ resource "aws_cloudfront_distribution" "website_cdn" {
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.web_assets_bucket.id
-  policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Sid" : "AllowCloudFrontServicePrincipalReadOnly",
-        "Effect" : "Allow",
-        "Principal" : {
-          "Service" : "cloudfront.amazonaws.com"
-        },
-        "Action" : "s3:GetObject",
-        "Resource" : "${aws_s3_bucket.web_assets_bucket.arn}/*",
-        "Condition" : {
-          "StringEquals" : {
-            "AWS:SourceArn" : "${aws_cloudfront_distribution.website_cdn.arn}"
-          }
-        }
-      }
-    ]
-  })
+  policy = data.aws_iam_policy_document.cloudfront_policy.json
+}
+
+data "aws_iam_policy_document" "cloudfront_policy" {
+  statement {
+    sid    = "AllowCloudFrontServicePrincipalReadOnly"
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
+    }
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.web_assets_bucket.arn}/*"]
+    condition {
+      test     = "StringEquals"
+      values   = ["${aws_cloudfront_distribution.website_cdn.arn}"]
+      variable = "AWS:SourceArn"
+    }
+  }
+}
+
+data "aws_route53_zone" "zone" {
+  name         = var.domain_name
+  private_zone = false
+}
+
+resource "aws_route53_record" "www" {
+  allow_overwrite = true
+  zone_id         = data.aws_route53_zone.zone.zone_id
+  name            = "www"
+  type            = "A"
+  alias {
+    name                   = aws_cloudfront_distribution.website_cdn.domain_name
+    zone_id                = aws_cloudfront_distribution.website_cdn.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "default" {
+  allow_overwrite = true
+  zone_id         = data.aws_route53_zone.zone.zone_id
+  name            = tolist(aws_acm_certificate.default.domain_validation_options)[0].resource_record_name
+  records         = [tolist(aws_acm_certificate.default.domain_validation_options)[0].resource_record_value]
+  type            = tolist(aws_acm_certificate.default.domain_validation_options)[0].resource_record_type
+  ttl             = 300
+}
+
+resource "aws_acm_certificate" "default" {
+  provider          = aws.acm-provider
+  domain_name       = var.domain_name
+  subject_alternative_names = [ "*.${var.domain_name}" ]
+  validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_acm_certificate_validation" "validation" {
+  provider                = aws.acm-provider
+  certificate_arn         = aws_acm_certificate.default.arn
+  validation_record_fqdns = [aws_route53_record.default.fqdn, aws_route53_record.www.fqdn]
 }

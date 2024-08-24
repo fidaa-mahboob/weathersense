@@ -1,5 +1,10 @@
 provider "aws" {
-  region  = var.aws_region
+  region = var.aws_region
+}
+
+provider "aws" {
+  alias  = "acm-provider"
+  region = "us-east-1"
 }
 
 resource "aws_s3_bucket" "web_assets_bucket" {
