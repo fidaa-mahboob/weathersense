@@ -17,7 +17,9 @@
 
 ## Blog Post
 
-This repo has an [associated blog post.](https://medium.com/@fidaamahboob/my-software-engineering-journey-deploying-a-react-app-to-aws-4b0c957db857)
+This repo has an [associated blog post.](https://medium.com/@fidaamahboob/my-software-engineering-journey-deploying-a-react-app-to-aws-4b0c957db857).
+
+Update - Added a custom domain to my website read this blog to find out more [click here.](https://medium.com/@fidaamahboob/attaching-a-custom-domain-to-aws-cloud-front-using-terraform-complete-guide-f3d4985f24e9)
 
 ## AWS
 
