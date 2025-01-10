@@ -12,9 +12,9 @@ jest.mock("@iconscout/react-unicons", () => ({
     UilWind: () => <span data-testid="uil-wind" />,
     UilArrowUp: () => <span data-testid="uil-arrow-up" />,
     UilArrowDown: () => <span data-testid="uil-arrow-down" />,
-  }));
+}));
 
-  describe("CurrentWeather Component", () => {
+describe("CurrentWeather Component", () => {
     const mockSetDataLoaded = jest.fn();
   
     const mockCurrentWeatherData = {
@@ -30,9 +30,11 @@ jest.mock("@iconscout/react-unicons", () => ({
         speed: 5.2,
       },
     };
-  
-afterEach(() => {
-    jest.clearAllMocks();
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+    
 });
 
 
