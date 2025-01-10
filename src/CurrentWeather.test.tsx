@@ -14,5 +14,26 @@ jest.mock("@iconscout/react-unicons", () => ({
     UilArrowDown: () => <span data-testid="uil-arrow-down" />,
   }));
 
+  describe("CurrentWeather Component", () => {
+    const mockSetDataLoaded = jest.fn();
+  
+    const mockCurrentWeatherData = {
+      weather: [{ main: "Clear", icon: "01d" }],
+      main: {
+        temp: 25.5,
+        feels_like: 27.3,
+        humidity: 50,
+        temp_max: 28.1,
+        temp_min: 20.4,
+      },
+      wind: {
+        speed: 5.2,
+      },
+    };
+  
+afterEach(() => {
+    jest.clearAllMocks();
+});
+
 
 
