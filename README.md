@@ -1,5 +1,6 @@
 # WeatherSense 
 <div><p>This is a React app I built that allows you to search weather for any location by typing into the search bar or your own location through clicking the current location. After entering location, it shows the current weather and the 3 hourly periodic forecast for the day. 
+
 ## Tech Stack
 
 <ul>
