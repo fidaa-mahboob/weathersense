@@ -29,7 +29,7 @@ To view weathersense application in production [click here.](https://d3vn25g3axu
 ## Road Map
 
 <ul>
-  <li>Port remaining files to Typescript.</li>
+  <li>Port remaining files to Typescript. (Completed)</li>
 </ul>
 
 ## Run Project In Local Development Environment
