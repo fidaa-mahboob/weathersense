@@ -7,6 +7,11 @@ export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+  },
+  // testEnvironment: "jsdom",
+
   // Stop running tests after `n` failures
   // bail: 0,
 
@@ -81,7 +86,10 @@ export default {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "\\.(jpg|jpeg|png|gif|webp|svg)$":  "<rootDir>/__mocks__/fileMock.js"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -191,4 +199,5 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  verbose: true
 };
