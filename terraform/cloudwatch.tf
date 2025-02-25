@@ -43,3 +43,24 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_4xx_alarm" {
     actions_enabled = true
     alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert]
 }
+
+resource "aws_cloudwatch_metric_alarm" "cloudfront_latency_alarm" {
+    alarm_name = "Cloudwatch-High-Latency"
+    comparison_operator = "GreaterThanThreshold" 
+    evaluation_periods = 1
+    metric_name = "TotalResponseTime"
+    namespace = "AWS/Cloudfront"
+    threshold = 0.5
+    period = 300
+    statistic = "Average"
+    treat_missing_data = "notBreaching"
+
+    dimensions = {
+        DistributionId = aws_cloudfront_distribution.website_cdn.id
+        Region = "Global"
+    }
+
+    alarm_description = "Triggers when CloudFront response time exceeds 500ms."
+    actions_enabled = true
+    alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert]
+}
