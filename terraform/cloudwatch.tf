@@ -4,6 +4,7 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_5xx_alarm" {
     evaluation_periods = 1
     metric_name = "5xxErrorRate"
     namespace = "AWS/Cloudfront"
+    threshold = 5
 
     dimensions = {
         DistributionId = aws_cloudfront_distribution.website_cdn.id
@@ -23,3 +24,4 @@ resource "aws_sns_topic_subscription" "email_subscriber" {
     protocol = "email"
     endpoint = "fidaamahboob@gmail.com"
 }
+
