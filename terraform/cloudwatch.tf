@@ -5,6 +5,7 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_5xx_alarm" {
     metric_name = "5xxErrorRate"
     namespace = "AWS/Cloudfront"
     threshold = 5
+    statistic = "Average"
 
     dimensions = {
         DistributionId = aws_cloudfront_distribution.website_cdn.id
@@ -13,7 +14,7 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_5xx_alarm" {
 
     alarm_description = "Triggers when CloudFront 5XX errors exceed 5%."
     actions_enabled = true
-    alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert]
+    alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert.arn]
 }
 
 resource "aws_sns_topic" "weathersense_cloudfront_alert" {
@@ -33,6 +34,7 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_4xx_alarm" {
     metric_name = "4xxErrorRate"
     namespace = "AWS/Cloudfront"
     threshold = 10
+    statistic = "Average"
 
     dimensions = {
         DistributionId = aws_cloudfront_distribution.website_cdn.id
@@ -41,7 +43,7 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_4xx_alarm" {
 
     alarm_description = "Triggers when CloudFront 4XX errors exceed 10%."
     actions_enabled = true
-    alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert]
+    alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert.arn]
 }
 
 resource "aws_cloudwatch_metric_alarm" "cloudfront_latency_alarm" {
@@ -62,5 +64,5 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_latency_alarm" {
 
     alarm_description = "Triggers when CloudFront response time exceeds 500ms."
     actions_enabled = true
-    alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert]
+    alarm_actions = [aws_sns_topic.weathersense_cloudfront_alert.arn]
 }
