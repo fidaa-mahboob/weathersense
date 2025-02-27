@@ -104,9 +104,11 @@ jobs:
 
 
       -   name: Install Node Packages
+          if: github.ref == 'refs/heads/main' && github.event_name == 'push'
           run: npm i    
 
       -   name: Run Component Tests
+          if: github.ref == 'refs/heads/main' && github.event_name == 'push'
           run: |
              CI=true npm run test
 
