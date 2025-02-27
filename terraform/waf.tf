@@ -1,11 +1,14 @@
 # Create AWS WAF Web ACL
 resource "aws_wafv2_web_acl" "weathersense_waf" {
+  provider    = aws.acm-provider
   name        = "weathersense-waf"
-  description = "WAF to protect WeatherSense CloudFront"
+  description = "WAF to protect Weather Sense CloudFront"
   scope       = "CLOUDFRONT"
+
   default_action {
     allow {}
   }
+
   visibility_config {
     cloudwatch_metrics_enabled = true
     metric_name                = "weathersense-waf-metrics"
