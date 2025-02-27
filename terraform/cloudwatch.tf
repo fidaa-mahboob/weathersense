@@ -2,6 +2,7 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_5xx_alarm" {
   alarm_name          = "Cloudwatch-5xx-Errors"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = 1
+  period              = 300
   metric_name         = "5xxErrorRate"
   namespace           = "AWS/Cloudfront"
   threshold           = 5
@@ -31,6 +32,7 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_4xx_alarm" {
   alarm_name          = "Cloudwatch-4xx-Errors"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = 1
+  period              = 300
   metric_name         = "4xxErrorRate"
   namespace           = "AWS/Cloudfront"
   threshold           = 10
