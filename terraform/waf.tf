@@ -73,9 +73,4 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
   }
 }
 
-resource "aws_wafv2_web_acl_association" "weathersense_waf_attach" {
-  resource_arn = aws_cloudfront_distribution.website_cdn.arn
-  web_acl_arn  = aws_wafv2_web_acl.weathersense_waf.arn
-}
-
 data "aws_caller_identity" "current" {}
