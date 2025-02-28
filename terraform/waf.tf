@@ -18,15 +18,18 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
   rule {
     name     = "AWS-CommonRuleSet"
     priority = 1
-    action {
-      block {}
-    }
+
     statement {
       managed_rule_group_statement {
         vendor_name = "AWS"
         name        = "AWSManagedRulesCommonRuleSet"
       }
     }
+
+    action {
+      allow {}
+    }
+
     visibility_config {
       cloudwatch_metrics_enabled = true
       metric_name                = "common-rules"
@@ -38,8 +41,9 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
     name     = "AWS-BadInputsRuleSet"
     priority = 2
     action {
-      block {}
+      count {}
     }
+
     statement {
       managed_rule_group_statement {
         vendor_name = "AWS"
@@ -56,15 +60,18 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
   rule {
     name     = "AWS-BotControlRuleSet"
     priority = 3
-    action {
-      block {}
-    }
+
     statement {
       managed_rule_group_statement {
         vendor_name = "AWS"
         name        = "AWSManagedRulesBotControlRuleSet"
       }
     }
+
+    action {
+      block {}
+    }
+
     visibility_config {
       cloudwatch_metrics_enabled = true
       metric_name                = "bot-control"
@@ -72,5 +79,3 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
     }
   }
 }
-
-data "aws_caller_identity" "current" {}
