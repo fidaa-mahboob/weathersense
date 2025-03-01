@@ -8,7 +8,7 @@ resource "aws_cloudfront_origin_access_control" "cloudfront_oac" {
 
 resource "aws_cloudfront_distribution" "website_cdn" {
   enabled    = true
-  web_acl_id = aws_wafv2_web_acl.weathersense_waf.id
+  web_acl_id = aws_wafv2_web_acl.weathersense_waf.arn
 
   origin {
     domain_name              = aws_s3_bucket.web_assets_bucket.bucket_regional_domain_name
