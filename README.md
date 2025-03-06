@@ -16,6 +16,10 @@
   <li>Github Actions CI/CD</li>
 </ul>
 
+## Architecture
+
+![aws-architecture-weathersense_resized](https://github.com/user-attachments/assets/b6d4dd1b-bc82-4ccf-a52a-0ee66ad3c29e)
+
 ## Blog Post
 
 This repo has an [associated blog post.](https://medium.com/@fidaamahboob/my-software-engineering-journey-deploying-a-react-app-to-aws-4b0c957db857).
