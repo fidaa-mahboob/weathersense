@@ -17,10 +17,10 @@
 </ul>
 
 ## Architecture
-
-![aws-architecture-weathersense_resized](https://github.com/user-attachments/assets/b6d4dd1b-bc82-4ccf-a52a-0ee66ad3c29e)
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/cd8f2f49-493c-44f0-bbdb-c62bd19338f4)
 
 ## Blog Post
+
 
 This repo has an [associated blog post.](https://medium.com/@fidaamahboob/my-software-engineering-journey-deploying-a-react-app-to-aws-4b0c957db857).
 
