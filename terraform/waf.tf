@@ -18,8 +18,8 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
   rule {
     name     = "AWS-CommonRuleSet"
     priority = 1
-    action {
-      block {}
+    override_action {
+      count {}
     }
     statement {
       managed_rule_group_statement {
@@ -37,8 +37,8 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
   rule {
     name     = "AWS-BadInputsRuleSet"
     priority = 2
-    action {
-      block {}
+    override_action {
+      count {}
     }
     statement {
       managed_rule_group_statement {
@@ -56,8 +56,8 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
   rule {
     name     = "AWS-BotControlRuleSet"
     priority = 3
-    action {
-      block {}
+    override_action {
+      count {}
     }
     statement {
       managed_rule_group_statement {
@@ -72,5 +72,3 @@ resource "aws_wafv2_web_acl" "weathersense_waf" {
     }
   }
 }
-
-data "aws_caller_identity" "current" {}
